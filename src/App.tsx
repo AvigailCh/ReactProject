@@ -8,5 +8,4 @@ function App() {
    <UserList></UserList>
   );
 }
-
 export default App;
