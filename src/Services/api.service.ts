@@ -5,4 +5,5 @@ export default new class ApiService{
     getListUsers(){
         return axios.get(`${this.BASE_URL}/users`);
     }
+
 }
