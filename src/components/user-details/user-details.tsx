@@ -11,15 +11,15 @@ interface UserDetailsProps {
 
 const UserDetails: FC<UserDetailsProps> = (props:UserDetailsProps) => {
   const myForm=useFormik({
-    initialValues: new User("Id", "Name", "UserName", "Email"),
+    initialValues: new User("id", "name", "username", "email"),
     onSubmit: (valueForm: User) => {
       props.funcParentAdd(valueForm)
     },
     validationSchema: Yup.object().shape({
-      Id: Yup.string().required(),
-      Name: Yup.string().required(),
-      UserName: Yup.string().required(),
-      Email: Yup.string().required().email(),
+      id: Yup.string().required(),
+      name: Yup.string().required(),
+      username: Yup.string().required(),
+      email: Yup.string().required().email(),
     })
   })
 
@@ -28,27 +28,27 @@ const UserDetails: FC<UserDetailsProps> = (props:UserDetailsProps) => {
       <h2 className='mt-5'>{props.children}</h2>
 
       <div className='form-group mt-3'>
-        <label>Id:</label>
-        <input name='Id' onChange={myForm.handleChange} className={myForm.errors.Id ? 'form-control is-invalid' : 'form-control'}></input>
-        {myForm.errors.Id ? <small>{myForm.errors.Id}</small> : ''}
+        <label>id:</label>
+        <input name='id' onChange={myForm.handleChange} className={myForm.errors.id ? 'form-control is-invalid' : 'form-control'}></input>
+        {myForm.errors.id ? <small>{myForm.errors.id}</small> : ''}
       </div>
       <div className='form-group mt-3'>
-        <label>Name</label>
-        <input name='Name' onChange={myForm.handleChange} className={myForm.errors.Name ? 'form-control is-invalid' : 'form-control'}></input>
-        {myForm.errors.Name ? <small>{myForm.errors.Name}</small> : ''}
-      </div>
-
-      <div className='form-group mt-3'>
-        <label>User Name</label>
-        <input name='UserName' onChange={myForm.handleChange} className={myForm.errors.UserName ? 'form-control is-invalid' : 'form-control'}></input>
-        {myForm.errors.UserName ? <small>{myForm.errors.UserName}</small> : ''}
-
+        <label>name</label>
+        <input name='name' onChange={myForm.handleChange} className={myForm.errors.name ? 'form-control is-invalid' : 'form-control'}></input>
+        {myForm.errors.name ? <small>{myForm.errors.name}</small> : ''}
       </div>
 
       <div className='form-group mt-3'>
-        <label>Email</label>
-        <input name='Email' onChange={myForm.handleChange} className={myForm.errors.Email ? 'form-control is-invalid' : 'form-control'}></input>
-        {myForm.errors.Email ? <small>{myForm.errors.Email}</small> : ''}
+        <label>User name</label>
+        <input name='username' onChange={myForm.handleChange} className={myForm.errors.username ? 'form-control is-invalid' : 'form-control'}></input>
+        {myForm.errors.username ? <small>{myForm.errors.username}</small> : ''}
+
+      </div>
+
+      <div className='form-group mt-3'>
+        <label>email</label>
+        <input name='email' onChange={myForm.handleChange} className={myForm.errors.email ? 'form-control is-invalid' : 'form-control'}></input>
+        {myForm.errors.email ? <small>{myForm.errors.email}</small> : ''}
 
       </div>
 
