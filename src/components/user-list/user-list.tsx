@@ -4,6 +4,7 @@ import apiService from '../../Services/api.service';
 import { useState, useEffect } from 'react';
 import Loadder from '../loadder/loadder';
 import User from '../../models/User';
+import UserDetails from '../user-details/user-details';
 
 interface UserListProps {
 }
@@ -13,6 +14,13 @@ const UserList: FC<UserListProps> = () => {
   const [UsersList, setUsersList] = useState<any[]>([])
   const [isDisplay, setIsDisplay] = useState(false)
   const [Users, setUsers] = useState<User[]>([])
+
+
+  const addNewUser = (user: User) => {
+    Users.push(user);
+    setUsers([...Users])
+  }
+
 
   useEffect(() => {
     loadItems();
@@ -49,6 +57,9 @@ const UserList: FC<UserListProps> = () => {
         </div>
       </div>
     })}
+    <div className='col-sm-6'>
+      <UserDetails funcParentAdd={addNewUser}>משתמש חדש</UserDetails>
+    </div>
   </div>
 }
 
