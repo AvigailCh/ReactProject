@@ -16,9 +16,9 @@ const UserDetails: FC<UserDetailsProps> = (props:UserDetailsProps) => {
       props.funcParentAdd(valueForm)
     },
     validationSchema: Yup.object().shape({
-      id: Yup.string().required(),
-      name: Yup.string().required(),
-      username: Yup.string().required(),
+      id: Yup.string().required().min(9).max(9),
+      name: Yup.string().required().min(2),
+      username: Yup.string().required().min(2),
       email: Yup.string().required().email(),
     })
   })
@@ -28,7 +28,7 @@ const UserDetails: FC<UserDetailsProps> = (props:UserDetailsProps) => {
       <h2 className='mt-5'>{props.children}</h2>
 
       <div className='form-group mt-3'>
-        <label>id:</label>
+        <label>id</label>
         <input name='id' onChange={myForm.handleChange} className={myForm.errors.id ? 'form-control is-invalid' : 'form-control'}></input>
         {myForm.errors.id ? <small>{myForm.errors.id}</small> : ''}
       </div>

@@ -2,16 +2,16 @@ import React, { FC } from 'react';
 import './my-modal.scss';
 import { title } from 'process';
 
-interface MyModalProps { 
-  title:string,
-  func:Function
+interface MyModalProps {
+  title: string,
+  func: Function
 }
 
 const MyModal: FC<MyModalProps> = (props: MyModalProps) => {
 
-const OkFunc = () => {
-  props.func();
-}
+  const OkFunc = () => {
+    props.func();
+  }
 
   return <div className="my-modal">
     {/* <!-- Button trigger modal --> */}
@@ -20,7 +20,7 @@ const OkFunc = () => {
     </button>
 
     {/* <!-- Modal --> */}
-    <div className="modal fade" id="exampleModalCenter"  role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div className="modal fade" id="exampleModalCenter" tabIndex={-1} role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
       <div className="modal-dialog modal-dialog-centered" role="document">
         <div className="modal-content">
           <div className="modal-header">
